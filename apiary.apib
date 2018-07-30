@@ -1,11 +1,19 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://ezl.ezlawyer.org/api/v1
 
-# ezl-api
+# Ezlawyer
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+API para integração com o Ezlawyer
 
-## Questions Collection [/questions]
+## Autenticação [/]
+
+### Obtendo token [POST]
++ Response 200 (application/json)
+    [
+        {
+            "token": '123'
+        }
+    ]
 
 ### List All Questions [GET]
 
