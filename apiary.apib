@@ -1,116 +1,55 @@
 FORMAT: 1A
-HOST: https://ezl.ezlawyer.com.br/v1/api
 
 # Ezlawyer
-Esta é a documentação de integração com o a API do 
-[Ezlawyer](https://ezlawyer.com.br).
 
-**Atenção**: Para seguir nesta documentação é necesspario possuir o 
-client_id e client_secret da aplicação (Este será fornecido pela equipe de suporte do Ezlawyer)
+Ezlawyer é uma plataforma que permite gesta da contratação de 
+correspondentes jurídicos.
+
+# Group Fluxo de integração
+
+Descrever o fluxo necessário para integrar uma Task
+
+# Status das transações
+
+Descrever das trasações de uma Task
+
+# Interpretrando status retornados pela API
+
+Descrever os status retornados na API
 
 # Group Autenticação
-Neste tópico será demonstrado os passos para se autenticar na API
 
-## Fluxo da autenticação
-1. Obter o client_id e client_secret
-2. Obter token para realização das requisições
-3. Informar no cabeçalho de cada requisição o token
+Informações necessárioas para a autenticação da API.
 
-## Obtendo token [/oauth2/token]
-teste
+## Obtendo o Token de autenticação [/oauth2/token/]
 
-+ Model (application/json)
+### Gerando o Token [POST]
 
-    ```js
-    {
-        "data": {
-        "access_token": "3igqaaJRDIDLpjX2VzjrXmgzpQNsHh", 
-        "expires_in": 36000, 
-        "token_type": "Bearer", 
-        "scope": 
-        "read write groups",
+Para consumir os endpoints fornecidos pela Ezlawyer é necessário informar no 
+cabeçalho de cada requisição o token obtido. 
+
++ grant_type (string) - client_credentials.
++ client_id (string) - Informar o client_id fornecido. 
++ client_secret (string)- Informar o client_secret fornecido.
+
++ Request (application/json)
+
+        {
+            "grant_type": "client_credentials",
+            "client_id": "3i9i9VV3ossnxvviTtzAYCtHS6tVD2Wj0djVQYAz",
+            "client_secret": "ZSWmdBQmhDiWjULojRPEXnTeArdIN3BB2HfrN19HiK14QaLUER0NmA9OvjMCVzyvlvof8BjOQeBow2dCCGIflBVXZmJflFJGaGcme26FFqyb5KGiCRdYbHG2fbEEDtIY",
         }
-    ```
+        
++ Response 200 (application/json)
 
-### Post Token [POST]
-Returns a specific Post.
-
-+ Response 200
-
-    [Obtendo token][]
-
-### Delete a Post [DELETE]
-Delete a Post. The current user must be the same user who created the Post. It
-returns the deleted Post on success.
-
-+ Response 204
-
-## Posts Collection [/stream/0/posts]
-A Collection of posts.
-
-+ Model (application/json)
-
-    ```js
-    {
-        "data": [
+    + Body
+    
             {
-                "id": "1", // note this is a string
-                ...
-            },
-            {
-                "id": "2",
-                ...
-            },
-            {
-                "id": "3",
-                ...
-            },
-        ],
-        "meta": {
-            "code": 200,
-        }
-    }
-    ```
+                "access_token": "lD4YUAqY5UVYFqowSWirTMilKGWl8Q",
+                "expires_in": 36000,
+                "token_type": "Bearer",
+                "scope": "read write groups"
+            }
 
-### Create a Post [POST]
-Create a new Post object. Mentions and hashtags will be parsed out of the post
-text, as will bare URLs...
 
-+ Request
-
-    [Obtendo token][]
-
-+ Response 201
-
-    [Obtendo token][]
-
-### Retrieve all Posts [GET]
-Retrieves all posts.
-
-+ Response 200
-
-    [Posts Collection][]
-
-## Stars [/stream/0/posts/{post_id}/star]
-A User’s stars are visible to others, but they are not automatically added to
-your followers’ streams.
-
-+ Parameters
-    + post_id: `1` (string) - The id of the Post.
-
-### Star a Post [POST]
-Save a given Post to the current User’s stars. This is just a “save” action,
-not a sharing action.
-
-*Note: A repost cannot be starred. Please star the parent Post.*
-
-+ Response 200
-
-    [Obtendo token][]
-
-### Unstar a Post [DELETE]
-Remove a Star from a Post.
-
-+ Response 200
-
-    [Obtendo token][]
+# Group Pessoas
