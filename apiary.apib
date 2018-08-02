@@ -53,3 +53,44 @@ cabeçalho de cada requisição o token obtido.
 
 
 # Group Pessoas
+
+## Mantendo o cadastro de pessoas [/person/]
+
+### Criar uma pessoa [POST]
+
+### Listando pessoas [GET]
+
++ Headers
+
+    {
+       Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
+    }
+
++ Response 201 (application/json)
+
+    + Body
+
+        {
+            "count": 3,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 11175,
+                    "name": "THIAGO ABREU RODRIGUES",
+                    "legal_name": "THIAGO ABREU RODRIGUES",
+                    "legal_type": "F",
+                    "cpf_cnpj": null,
+                    "is_lawyer": false,
+                    "is_customer": false,
+                    "is_supplier": false,
+                    "is_active": true,
+                    "import_from_legacy": false,
+                    "auth_user": 816,
+                    "alter_user": 816,
+                    "legacy_code": ""
+                }
+            ]
+        }
+
+### Alterando pessoas [PUT]
