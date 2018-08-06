@@ -106,13 +106,16 @@ Use esta ação para criar uma nova pasta. Deve ser enviado um objeto JSON conte
 + Request (application/json)
     
     + Headers
-        Authorization :"Bearer ZyBEWC56MDXE59Iobd6VzP3j7ZSAX1",
+    
+        {
+            Authorization: "Bearer ZyBEWC56MDXE59Iobd6VzP3j7ZSAX1",
+        }
         
     + Body
         {
-            "grant_type": "client_credentials",
-            "client_id": "3i9i9VV3ossnxvviTtzAYCtHS6tVD2Wj0djVQYAz",
-            "client_secret": "ZSWmdBQmhDiWjULojRPEXnTeArdIN3BB2HfrN19HiK14QaLUER0NmA9OvjMCVzyvlvof8BjOQeBow2dCCGIflBVXZmJflFJGaGcme26FFqyb5KGiCRdYbHG2fbEEDtIY",
+            "person_customer": 11194,
+            "cost_center":
+            "legacy_code":
         }
 
 ### Listando pastas [GET]
