@@ -62,9 +62,7 @@ cabeçalho de cada requisição o token obtido.
 
 + Headers
 
-    {
-       Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
-    }
+   Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
 
 + Response 201 (application/json)
 
@@ -94,3 +92,52 @@ cabeçalho de cada requisição o token obtido.
         }
 
 ### Alterando pessoas [PUT]
+
+# Group Pastas
+
+## Mantendo o cadastro de pastas [/folder/]
+
+### Criar uma pasta [POST]
+Use esta ação para criar uma nova pasta. Deve ser enviado um objeto JSON contendo obrigatoriamente:
++ person_customer (required, integer): Identificador do cliente cadastrado no escritório que será vinculado à pasta
++ cost_center (id): Identificador do centro de custo
++ legacy_code (string): Identificador do sistema legado
+
++ Request (application/json)
+    
+    + Headers
+        Authorization :"Bearer ZyBEWC56MDXE59Iobd6VzP3j7ZSAX1",
+        
+    + Body
+        {
+            "grant_type": "client_credentials",
+            "client_id": "3i9i9VV3ossnxvviTtzAYCtHS6tVD2Wj0djVQYAz",
+            "client_secret": "ZSWmdBQmhDiWjULojRPEXnTeArdIN3BB2HfrN19HiK14QaLUER0NmA9OvjMCVzyvlvof8BjOQeBow2dCCGIflBVXZmJflFJGaGcme26FFqyb5KGiCRdYbHG2fbEEDtIY",
+        }
+
+### Listando pastas [GET]
+
++ Headers
+
+   Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
+
++ Response 201 (application/json)
+    + Body
+        {
+            "count": 1,
+            "next": null,
+            "previous": null,
+            "results": [
+                {
+                    "id": 13604,
+                    "office": 171,
+                    "folder_number": 1,
+                    "person_customer": 11194,
+                    "cost_center": null,
+                    "create_user": 2,
+                    "legacy_code": null
+                }
+            ]
+        }
+
+### Alterando pasta [PUT]
