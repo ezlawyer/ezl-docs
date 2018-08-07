@@ -133,19 +133,18 @@ cabeçalho de cada requisição o token obtido.
 
 # Group Pastas
 
-## Mantendo o cadastro de pastas [/folder/]
+## Operações gerais [/folder/]
 
 ### Criar uma pasta [POST]
-Use esta ação para criar uma nova pasta. Deve ser enviado um objeto JSON contendo obrigatoriamente:
-+ person_customer (required, integer): Identificador do cliente cadastrado no escritório que será vinculado à pasta
-+ cost_center (id): Identificador do centro de custo
-+ legacy_code (string): Identificador do sistema legado
++ person_customer: `11194` (integer, required) - Identificador do cliente cadastrado no escritório que será vinculado à pasta
++ cost_center: `15` (integer) - Identificador do centro de custo
++ legacy_code: `123456` (string) - Identificador da pasta no sistema legado
 
 + Request (application/json)
     
     + Headers
     
-            Authorization: "Bearer ZyBEWC56MDXE59Iobd6VzP3j7ZSAX1",
+            Authorization: "Bearer <TOKEN>",
         
     + Body
         
@@ -154,15 +153,18 @@ Use esta ação para criar uma nova pasta. Deve ser enviado um objeto JSON conte
                 "cost_center":
                 "legacy_code":
             }
-        
 
-### Listando pastas [GET]
-Listar Pastas cadastradas para a sessão
+### Listando pastas [GET /folder/{id}]
+Listar Pastas cadastradas para o escritíorio da sessão
+
++ Parameters
+
+    + id: 1 (number, optional) - Identificador único da pasta.
 
 + Response 201 (application/json)
     + Headers
     
-            Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
+            Authorization: "Bearer <TOKEN>" 
         
     + Body
         
@@ -184,4 +186,26 @@ Listar Pastas cadastradas para a sessão
             }
         
 
-### Alterando pasta [PUT]
+### Alterando pasta [PUT /folder/{id}]
+Alterar a pasta de acordo com o ID informado
+
++ Parameters
+
+    + id: 1 (number, required) - Identificador único da pasta.
+
++ Response 200 (application/json)
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>" 
+        
+    + Body
+        
+            {
+                {
+                    "id": 13604,
+                    "folder_number": 1,
+                    "person_customer": 11194,
+                    "cost_center": null,
+                    "legacy_code": null
+                }
+            }
