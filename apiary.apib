@@ -33,12 +33,14 @@ cabeçalho de cada requisição o token obtido.
 + client_secret (string)- Informar o client_secret fornecido.
 
 + Request (application/json)
-
-        {
-            "grant_type": "client_credentials",
-            "client_id": "3i9i9VV3ossnxvviTtzAYCtHS6tVD2Wj0djVQYAz",
-            "client_secret": "ZSWmdBQmhDiWjULojRPEXnTeArdIN3BB2HfrN19HiK14QaLUER0NmA9OvjMCVzyvlvof8BjOQeBow2dCCGIflBVXZmJflFJGaGcme26FFqyb5KGiCRdYbHG2fbEEDtIY",
-        }
+        
+    + Body
+    
+            {
+                "grant_type": "client_credentials",
+                "client_id": "3i9i9VV3ossnxvviTtzAYCtHS6tVD2Wj0djVQYAz",
+                "client_secret": "ZSWmdBQmhDiWjULojRPEXnTeArdIN3BB2HfrN19HiK14QaLUER0NmA9OvjMCVzyvlvof8BjOQeBow2dCCGIflBVXZmJflFJGaGcme26FFqyb5KGiCRdYbHG2fbEEDtIY",
+            }
         
 + Response 200 (application/json)
 
@@ -73,56 +75,59 @@ cabeçalho de cada requisição o token obtido.
 + is_costumer: `false` (boolean) - Esta opção define se a pessoa é um cliente
 + is_supplier: `false`(boolean) - Esta opção define se a pessoa é um fornecedor
 + is_active: `true` (boolean) - Esta opção define se a pessoa está ativa
-
-
-+ Headers
-    
-    Authorization: "Bearer <TOKEN>"
     
 + Request (application/json)
+    
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>"
 
-    {
-        legal_name: ''
-    }
+    + Body
+
+            {
+                "legal_name": ''
+            }
+            
 
 + Response 201 (application/json)
     
     + Body
     
-        {}
+            {
+            }
 
 ### Listando pessoas [GET]
 
-+ Headers
-
-   Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
-
 + Response 201 (application/json)
 
+    + Headers
+    
+            Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5"
+        
     + Body
 
-        {
-            "count": 3,
-            "next": null,
-            "previous": null,
-            "results": [
-                {
-                    "id": 11175,
-                    "name": "THIAGO ABREU RODRIGUES",
-                    "legal_name": "THIAGO ABREU RODRIGUES",
-                    "legal_type": "F",
-                    "cpf_cnpj": null,
-                    "is_lawyer": false,
-                    "is_customer": false,
-                    "is_supplier": false,
-                    "is_active": true,
-                    "import_from_legacy": false,
-                    "auth_user": 816,
-                    "alter_user": 816,
-                    "legacy_code": ""
-                }
-            ]
-        }
+            {
+                "count": 3,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "id": 11175,
+                        "name": "THIAGO ABREU RODRIGUES",
+                        "legal_name": "THIAGO ABREU RODRIGUES",
+                        "legal_type": "F",
+                        "cpf_cnpj": null,
+                        "is_lawyer": false,
+                        "is_customer": false,
+                        "is_supplier": false,
+                        "is_active": true,
+                        "import_from_legacy": false,
+                        "auth_user": 816,
+                        "alter_user": 816,
+                        "legacy_code": ""
+                    }
+                ]
+            }
 
 ### Alterando pessoas [PUT]
 
@@ -140,40 +145,43 @@ Use esta ação para criar uma nova pasta. Deve ser enviado um objeto JSON conte
     
     + Headers
     
-        {
             Authorization: "Bearer ZyBEWC56MDXE59Iobd6VzP3j7ZSAX1",
-        }
         
     + Body
-        {
-            "person_customer": 11194,
-            "cost_center":
-            "legacy_code":
-        }
+        
+            {
+                "person_customer": 11194,
+                "cost_center":
+                "legacy_code":
+            }
+        
 
 ### Listando pastas [GET]
-
-+ Headers
-
-   Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
+Listar Pastas cadastradas para a sessão
 
 + Response 201 (application/json)
+    + Headers
+    
+            Authorization: "Bearer yQHcxUeoxp2UAdfIS5JAHdwzzVOnp5" 
+        
     + Body
-        {
-            "count": 1,
-            "next": null,
-            "previous": null,
-            "results": [
-                {
-                    "id": 13604,
-                    "office": 171,
-                    "folder_number": 1,
-                    "person_customer": 11194,
-                    "cost_center": null,
-                    "create_user": 2,
-                    "legacy_code": null
-                }
-            ]
-        }
+        
+            {
+                "count": 1,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "id": 13604,
+                        "office": 171,
+                        "folder_number": 1,
+                        "person_customer": 11194,
+                        "cost_center": null,
+                        "create_user": 2,
+                        "legacy_code": null
+                    }
+                ]
+            }
+        
 
 ### Alterando pasta [PUT]
