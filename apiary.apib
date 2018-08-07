@@ -155,7 +155,7 @@ cabeçalho de cada requisição o token obtido.
             }
 
 ### Listando pastas [GET /folder/{id}]
-Listar Pastas cadastradas para o escritíorio da sessão
+Listar Pastas cadastradas para o escritíorio da sessão. Pode ser informado um identificador para que seja listada uma pasta específica
 
 + Parameters
 
@@ -188,6 +188,9 @@ Listar Pastas cadastradas para o escritíorio da sessão
 
 ### Alterando pasta [PUT /folder/{id}]
 Alterar a pasta de acordo com o ID informado
++ person_customer: `11194` (integer, required) - Identificador do cliente cadastrado no escritório que será vinculado à pasta
++ cost_center: `15` (integer) - Identificador do centro de custo
++ legacy_code: `123456` (string) - Identificador da pasta no sistema legado
 
 + Parameters
 
