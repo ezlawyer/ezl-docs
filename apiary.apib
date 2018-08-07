@@ -155,7 +155,8 @@ cabeçalho de cada requisição o token obtido.
             }
 
 ### Listando pastas [GET /folder/{id}]
-Listar Pastas cadastradas para o escritíorio da sessão. Caso seja informado um identificador para que seja listada uma pasta específica
+Listar Pastas cadastradas para o escritíorio da sessão. 
+Caso seja informado um identificador será listado apenas a pasta selecionado.
 
 + Parameters
 
@@ -188,6 +189,7 @@ Listar Pastas cadastradas para o escritíorio da sessão. Caso seja informado um
 
 ### Alterando pasta [PUT /folder/{id}]
 Alterar a pasta de acordo com o ID informado
+
 + person_customer: `11194` (integer, required) - Identificador do cliente cadastrado no escritório que será vinculado à pasta
 + cost_center: `15` (integer) - Identificador do centro de custo
 + legacy_code: `123456` (string) - Identificador da pasta no sistema legado
@@ -213,6 +215,105 @@ Alterar a pasta de acordo com o ID informado
 
 ### Apagando pasta [DELETE /folder/{id}/]
 Apaga a pasta de acordo com o Id informado.
+
++ Parameters
+
+    + id: 1 (number, required) - Identificador único da pasta.
+
++ Response 201 (application/json)
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>" 
+        
+    + Body
+    
+            {
+            }
+
+# Group Processos
+
+## Operações gerais [/lawsuit/]
+
+### Criar um processo [POST]
++ person_customer: `11194` (integer, required) - Identificador do cliente cadastrado no escritório que será vinculado à pasta
++ cost_center: `15` (integer) - Identificador do centro de custo
++ legacy_code: `123456` (string) - Identificador da pasta no sistema legado
+
++ Request (application/json)
+    
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>",
+        
+    + Body
+        
+            {
+                "person_customer": 11194,
+                "cost_center":
+                "legacy_code":
+            }
+
+### Listando processos [GET /lawsuit/{id}]
+Lista Processos cadastradas para o escritíorio da sessão. 
+Caso seja informado um identificador será listado apenas o processo selecionado.
+
++ Parameters
+
+    + id: 1 (number, optional) - Identificador único da pasta.
+
++ Response 201 (application/json)
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>" 
+        
+    + Body
+        
+            {
+                "count": 1,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "id": 13604,
+                        "office": 171,
+                        "folder_number": 1,
+                        "person_customer": 11194,
+                        "cost_center": null,
+                        "create_user": 2,
+                        "legacy_code": null
+                    }
+                ]
+            }
+        
+
+### Alterando processo [PUT /lawsuit/{id}]
+Altera o processo de acordo com o ID informado
+
++ person_customer: `11194` (integer, required) - Identificador do cliente cadastrado no escritório que será vinculado à pasta
++ cost_center: `15` (integer) - Identificador do centro de custo
++ legacy_code: `123456` (string) - Identificador da pasta no sistema legado
+
++ Parameters
+
+    + id: 1 (number, required) - Identificador único da pasta.
+
++ Response 200 (application/json)
+    + Headers
+    
+            Authorization: "Bearer <TOKEN>" 
+        
+    + Body
+        
+            {
+                "id": 13604,
+                "folder_number": 1,
+                "person_customer": 11194,
+                "cost_center": null,
+                "legacy_code": null
+            }
+
+### Apagando processo [DELETE /lawsuit/{id}/]
+Apaga o processo de acordo com o Id informado.
 
 + Parameters
 
